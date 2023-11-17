@@ -50,11 +50,9 @@ def last_pressed_key(value):
     if str_value.isdigit() :
         variables[variable_selected] = variables[variable_selected] + str_value
     else:
-        print(str_value)
         operator = str_value
         if variable_selected < 1:
             variable_selected = 1
-    print(variables[variable_selected])
 
 
 
