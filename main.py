@@ -16,6 +16,10 @@ variables = ["0","0"]
 operator = "+"
 result = "0"
 
+def calculate():
+    print("calculate")
+
+
 def last_pressed_key(valor):
     input_value.set(input_value.get() + str(valor))
     print(valor)
@@ -33,7 +37,7 @@ def start_window():
     input.grid(row=0, column=0, columnspan=4)
 
     for btn in buttons:
-        tk.Button(window, text=btn, width=7, height=2,command=lambda b=btn: last_pressed_key(b) if True else None).grid(row=row_val, column=col_val)
+        tk.Button(window, text=btn, width=7, height=2,command=lambda b=btn: last_pressed_key(b) if b != '=' else calculate()).grid(row=row_val, column=col_val)
         col_val += 1
         if col_val > 3:
             col_val = 0
