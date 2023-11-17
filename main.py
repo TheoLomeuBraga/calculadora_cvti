@@ -14,35 +14,38 @@ buttons = [
 
 input_value = tk.StringVar()
 
-start = True
+restart = True
 variable_selected = 0
 variables = ["",""]
 operator = ""
 result = ""
 
 def clean_variables():
-    global variable_selected,variables,operator,result
+    global variable_selected,variables,operator,result,restart
     variable_selected = 0
     variables = ["",""]
     operator = ""
     result = ""
+    restart = True
 
 def calculate():
     
     print("calculate",variables[0],operator,variables[1])
+
+    
 
     input_value.set(result)
     clean_variables()
 
 
 def last_pressed_key(value):
-    global variable_selected,start,operator
+    global variable_selected,restart,operator
 
     str_value = str(value)
 
-    if start:
+    if restart:
         input_value.set(str_value)
-        start = False
+        restart = False
     else:
         input_value.set(input_value.get() + str_value)
     
