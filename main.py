@@ -10,19 +10,51 @@ buttons = [
     '0', 'C', '=','*'
 ]
 
+
+
 input_value = tk.StringVar()
 
-variables = ["0","0"]
-operator = "+"
-result = "0"
+start = True
+variable_selected = 0
+variables = ["",""]
+operator = ""
+result = ""
+
+def clean_variables():
+    global variable_selected,variables,operator,result
+    variable_selected = 0
+    variables = ["",""]
+    operator = ""
+    result = ""
 
 def calculate():
-    print("calculate")
+    
+    print("calculate",variables[0],operator,variables[1])
+
+    input_value.set(result)
+    clean_variables()
 
 
-def last_pressed_key(valor):
-    input_value.set(input_value.get() + str(valor))
-    print(valor)
+def last_pressed_key(value):
+    global variable_selected,start,operator
+
+    str_value = str(value)
+
+    if start:
+        input_value.set(str_value)
+        start = False
+    else:
+        input_value.set(input_value.get() + str_value)
+    
+    
+    if str_value.isdigit() :
+        variables[variable_selected] = variables[variable_selected] + str_value
+    else:
+        print(str_value)
+        operator = str_value
+        if variable_selected < 1:
+            variable_selected = 1
+    print(variables[variable_selected])
 
 
 
