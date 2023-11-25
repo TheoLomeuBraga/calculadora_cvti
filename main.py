@@ -33,6 +33,17 @@ def calculate():
     
     print("calculate",variables[0],operator,variables[1])
 
+    if operator == "+":
+        result = str(float(variables[0]) + float(variables[1]))
+    elif operator == "-":
+        result = str(float(variables[0]) - float(variables[1]))
+    elif operator == "*":
+        result = str(float(variables[0]) * float(variables[1]))
+    elif operator == "/":
+        result = str(float(variables[0]) / float(variables[1]))
+    
+
+    print(result)
     input_value.set(result)
     clean_variables()
 
